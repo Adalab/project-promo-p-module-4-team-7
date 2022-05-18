@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Awesome Profile Cards: marta</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+      integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Merriweather|Open+Sans:400,600|Ubuntu"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="main.css">
+
+  </head>
+  <body>
+    <main>
+      <section class="viewfinder palette2 typography1">
+        <div class="viewfinder__card">
+          <div class="viewfinder__card-title">
+            <div class="viewfinder__card-title-rectangule"></div>
+            <div class="viewfinder__card-titlebox">
+              <h2 class="viewfinder__card-title-name"><%= name%></h2>
+              <h3 class="viewfinder__card-title-job"><%= job%></h3>
+            </div>
+          </div>
+          <div
+            class="viewfinder__photo"
+            title="Foto de la tarjeta"
+            style="background-image: url(<%=photo%>
+            )"
+          ></div>
+          <div class="viewfinder__icons">
+            <div class="viewfinder__icons-box">
+              <a class="viewfinder__icons-link" href="tel: <%= phone%>">
+                <i class="fas fa-mobile-alt"></i>
+              </a>
+            </div>
+            <div class="viewfinder__icons-box">
+              <a class="viewfinder__icons-link" href="mailto:<%= email%>">
+                <i class="fas fa-envelope"></i>
+              </a>
+            </div>
+            <div class="viewfinder__icons-box">
+              <a
+                class="viewfinder__icons-link"
+                href="<%=linkedin%>"
+                target="_blank"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+            <div class="viewfinder__icons-box">
+              <a
+                class="viewfinder__icons-link"
+                href="<%=github%>"
+                target="_blank"
+              >
+                <i class="fab fa-github-alt"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
