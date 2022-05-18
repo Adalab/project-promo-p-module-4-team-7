@@ -1,17 +1,16 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 import defaultAvatar from '../images/kawaiiAvatar.gif';
 import '../styles/components/GetAvatar.scss';
 
-
 function GetAvatar(props) {
-    const fr = new FileReader();
-    const myFileField = React.createRef();
+  const fr = new FileReader();
+  const myFileField = React.createRef();
 
-    const uploadImage = (ev) => {
+  const uploadImage = (ev) => {
     if (ev.currentTarget.files.length > 0) {
       const myFile = ev.currentTarget.files[0];
-      fr.addEventListener("load", getImage);
+      fr.addEventListener('load', getImage);
       fr.readAsDataURL(myFile);
     }
   };
@@ -21,14 +20,14 @@ function GetAvatar(props) {
     props.updateAvatar(image);
   };
 
-  const avatar = props.avatar === "" ? defaultAvatar : props.avatar;
+  const avatar = props.avatar === '' ? defaultAvatar : props.avatar;
   return (
-      
     <div>
       <div className="components">
         <label className="components__btnAddImage" htmlFor="photo">
           Añadir imagen
-           </label>
+        </label>
+        <div className="components__hidden">
           <input
             type="file"
             ref={myFileField}
@@ -37,7 +36,8 @@ function GetAvatar(props) {
             name="photo"
             id="photo"
           />
-       
+        </div>
+
         <div
           className="components__square"
           style={{ backgroundImage: `url(${avatar})` }}
@@ -46,7 +46,6 @@ function GetAvatar(props) {
     </div>
   );
 }
-
 
 GetAvatar.propTypes = {
   avatar: PropTypes.string.isRequired,
