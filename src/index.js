@@ -2,6 +2,8 @@ const express = require("express");
 const cors = require("cors");
 const { v4: uuidv4 } = require("uuid");
 uuidv4();
+const Database = require('better-sqlite3');
+
 
 const server = express();
 
@@ -17,8 +19,9 @@ const serverPort = process.env.PORT || 4000;
 server.listen(serverPort, () => {
   console.log(`Server listening at http://localhost:${serverPort}`);
 });
-
-const savedCards = [];
+const db = new Database('./src/db/cards.db');
+// Listado de tarjetas
+// const savedCards = [];
 
 // Escribimos los endpoints que queramos
 server.post("/card", (req, res) => {
@@ -31,12 +34,31 @@ server.post("/card", (req, res) => {
     req.body.github !== "";
 
   if (requestData) {
-    const newCard = { ...req.body, id: uuidv4() };
-    savedCards.push(newCard);
+    const newCard = { 
+      ...req.body, 
+      id: uuidv4() 
+    };
+    // añadir al listado de tarjetas
+    // savedCards.push(newCard);
 
+    // insertar la tarjeta en la db
+    const query = db.prepare('INSERT INTO card (palette, name, job, email, phone, linkedin, github, photo, uuid) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)');
+    console.log(query);
+    const result = query.run(
+      newCard.palette,
+      newCard.name,
+      newCard.job,
+      newCard.email,
+      newCard.phone,
+      newCard.linkedin,
+      newCard.github,
+      newCard.photo,
+      newCard.id);
+
+    // creo la respuesta
     const responseSucess = {
       success: true,
-      cardURL: `https://localhost:4000/card/${newCard.id}`,
+      cardURL: `http://localhost:4000/card/${newCard.id}`,
     };
 
     res.json(responseSucess);
@@ -50,11 +72,18 @@ server.post("/card", (req, res) => {
   }
 });
 
-server.get("/card/id", (req, res) => {
-console.log(req.params.id);
-  const userCard = savedCards.find((card) => card.id === req.params.id);
+server.get("/card/:id", (req, res) => {
+
+
+  // console.log(req.params.id);
+  // const userCard = savedCards.find((card) => card.id === req.params.id);
+
+  const query =db.prepare('SELECT * FROM card WHERE uuid=?');
+  const userCard = query.get(req.params.id)
   res.render('card', userCard);
 });
+
+// Para devolver un 404 not found
 
 // server.get('*', (req, res) => {
 //   const notFoundFileRelativePath = './public/404-not-found.html';
