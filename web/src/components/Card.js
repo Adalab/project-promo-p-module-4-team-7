@@ -19,7 +19,7 @@ function Card(props) {
           dataCard={props.dataCard}
           handleReset={props.handleReset}
           handlePalettes={props.handlePalettes}
-          avatar = {props.avatar}
+          avatar={props.avatar}
         />
 
         <form action="" className="form js_form" onSubmit={handleSubmit}>
@@ -29,6 +29,8 @@ function Card(props) {
             handlePalettes={props.handlePalettes}
             arrowRotate={props.arrowRotate}
             sectionDesign={props.sectionDesign}
+            sectionFill={props.sectionFill}
+            sectionShare={props.sectionShare}
             handleCollapsed={props.handleCollapsed}
           />
 
@@ -40,6 +42,8 @@ function Card(props) {
             handleCollapsed={props.handleCollapsed}
             arrowRotate={props.arrowRotate}
             sectionDesign={props.sectionDesign}
+            sectionFill={props.sectionFill}
+            sectionShare={props.sectionShare}
             updateAvatar={props.updateAvatar}
             avatar={props.avatar}
           />
@@ -52,6 +56,8 @@ function Card(props) {
             handleCollapsed={props.handleCollapsed}
             arrowRotate={props.arrowRotate}
             sectionDesign={props.sectionDesign}
+            sectionFill={props.sectionFill}
+            sectionShare={props.sectionShare}
             shareOnTwitter={props.shareOnTwitter}
             apiData={props.apiData}
             message={

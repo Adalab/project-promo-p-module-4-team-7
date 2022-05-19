@@ -8,8 +8,6 @@ function Design(props) {
   };
 
   const handleCollapsed = (ev) => {
-    // ev.preventDefault();
-
     props.handleCollapsed(ev);
   };
 

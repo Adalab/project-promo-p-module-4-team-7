@@ -21,9 +21,11 @@ function Fill(props) {
       >
         <i className="far fa-keyboard legend__icon legend__icon--orange"></i>
         <span className="legend__text">Rellena</span>
-        <i className="fas fa-angle-up legend__icon legend__icon--arrow js_arrowFill"></i>
+        <i
+          className={`fas fa-angle-up legend__icon legend__icon--arrow js_arrowFill ${props.arrowRotate}`}
+        ></i>
       </legend>
-      <div className="containerFill js_fill">
+      <div className={`containerFill js_fill ${props.sectionFill}`}>
         <label className="label" htmlFor="name">
           Nombre completo
         </label>
@@ -51,13 +53,14 @@ function Fill(props) {
         />
 
         <label className="label" htmlFor="img">
-         {''}
+          {''}
           Imagen de perfil {''}
         </label>
 
         <GetAvatar
-        avatar={props.dataCard.photo}
-        updateAvatar={props.updateAvatar} />
+          avatar={props.dataCard.photo}
+          updateAvatar={props.updateAvatar}
+        />
 
         {/*}
         <div className="component">

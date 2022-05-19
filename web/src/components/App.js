@@ -54,14 +54,22 @@ function App() {
   //FUNCIÓN COLAPSABLES
   const [arrowRotate, setArrowRotate] = useState('');
   const [sectionDesign, setSectionDesign] = useState('');
+  const [sectionFill, setSectionFill] = useState('');
+  const [sectionShare, setSectionShare] = useState('');
+
   const handleCollapsed = (ev) => {
     // ev.preventDefault();
     const id = ev.currentTarget.id;
 
     if (id === 'designLegend') {
-      console.log(id);
       setArrowRotate('rotate');
       setSectionDesign('collapsed');
+    } else if (id === 'fillLegend') {
+      setArrowRotate('rotate');
+      setSectionFill('collapsed');
+    } else if (id === 'shareLegend') {
+      setArrowRotate('rotate');
+      setSectionShare('collapsed');
     }
   };
 
@@ -113,6 +121,8 @@ function App() {
         handleCollapsed={handleCollapsed}
         arrowRotate={arrowRotate}
         sectionDesign={sectionDesign}
+        sectionFill={sectionFill}
+        sectionShare={sectionShare}
         handleReset={handleReset}
         handleCreateCard={handleCreateCard}
         shareOnTwitter={shareOnTwitter}
