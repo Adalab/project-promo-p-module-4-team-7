@@ -1,5 +1,5 @@
 const dataApi = (dataCard) => {
-  return fetch('http://localhost:4000/card', {
+  return fetch('http://awesome-profile-cards-tbeach.herokuapp/card', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(dataCard),

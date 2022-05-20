@@ -56,12 +56,13 @@ server.post("/card", (req, res) => {
       newCard.id);
 
     // creo la respuesta
-    const responseSucess = {
+    const responseSuccess = {
       success: true,
-      cardURL: `http://localhost:4000/card/${newCard.id}`,
+      cardURL: `http://awesome-profile-cards-tbeach.herokuapp/card${newCard.id}`,
+      
     };
 
-    res.json(responseSucess);
+    res.json(responseSuccess);
   } else {
     const responseError = {
       success: false,
