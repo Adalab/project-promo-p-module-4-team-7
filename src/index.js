@@ -58,7 +58,7 @@ server.post("/card", (req, res) => {
     // creo la respuesta
     const responseSuccess = {
       success: true,
-      cardURL: `http://awesome-profile-cards-tbeach.herokuapp/card${newCard.id}`,
+      cardURL: `https://awesome-profile-cards-tbeach.herokuapp/card${newCard.id}`,
       
     };
 
